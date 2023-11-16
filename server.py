@@ -15,7 +15,8 @@ def add():
         num2 = request.form.get('second')
         # print(f'{num1} and {num2}')
         ans = int(num1)+int(num2)
-        return jsonify('response = ans')
+        str = {"result": ans}
+        return jsonify(str)
     elif request.json:
         # print(f'json data = {request.json}')
         json = request.json
@@ -23,7 +24,7 @@ def add():
         num2 = json['second']
         # print(f'{num1} and {num2}')
         ans = int(num1)+int(num2)
-        str = {"response": ans}
+        str = {"result": ans}
         return jsonify(str)
     else:
         print(f'received other data types')
@@ -36,15 +37,16 @@ def subtract():
         # print(f'Inside form request')
         num1 = request.form.get('first')
         num2 = request.form.get('second')
-        # print(f'{num1} and {num2}')
-        return f'response = {num1-num2}'
+        ans = int(num1)-int(num2)
+        str = {"result": ans}
+        return jsonify(str)
     elif request.json:
         # print(f'json data = {request.json}')
         json = request.json
         num1 = json['first']
         num2 = json['second']
         ans = int(num1)-int(num2)
-        str = {"response": ans}
+        str = {"result": ans}
         return jsonify(str)
     else:
         print(f'received other data types')
@@ -57,14 +59,16 @@ def multiply():
         num1 = request.form.get('first')
         num2 = request.form.get('second')
         # print(f'{num1} and {num2}')
-        return f'response = {num1*num2}'
+        ans = int(num1)*int(num2)
+        str = {"result": ans}
+        return jsonify(str)
     elif request.json:
         # print(f'json data = {request.json}')
         json = request.json
         num1 = json['first']
         num2 = json['second']
         ans = int(num1)*int(num2)
-        str = {"response": ans}
+        str = {"result": ans}
         return jsonify(str)
     else:
         print(f'received other data types')
